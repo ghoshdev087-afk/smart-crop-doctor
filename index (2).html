@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Crop Doctor AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">🌾 SMART CROP DOCTOR AI</div>
+    <button id="langBtn" type="button">English</button>
+  </header>
+
+  <nav>
+    <button type="button" data-page="home" data-t="navHome"></button>
+    <button type="button" data-page="scan" data-t="navScan"></button>
+    <button type="button" data-page="library" data-t="navLibrary"></button>
+    <button type="button" data-page="history" data-t="navHistory"></button>
+    <button type="button" data-page="help" data-t="navHelp"></button>
+    <button type="button" data-page="about" data-t="navAbout"></button>
+  </nav>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="page">
+      <div class="card hero">
+        <div class="logo">🌱🔍</div>
+        <h1 data-t="title"></h1>
+        <p data-t="intro"></p>
+        <button type="button" class="big" data-page="scan" data-t="startScanning"></button>
+      </div>
+      <div class="card"><ul>
+        <li data-t="feat1"></li>
+        <li data-t="feat2"></li>
+        <li data-t="feat3"></li>
+        <li data-t="feat4"></li>
+      </ul></div>
+      <p class="warn" data-t="disclaimer"></p>
+    </section>
+
+    <!-- SCANNER -->
+    <section id="scan" class="page">
+      <p id="modelStatus" class="status"></p>
+      <button type="button" id="retryBtn" hidden data-t="retry"></button>
+
+      <div class="viewer">
+        <video id="video" autoplay playsinline muted hidden></video>
+        <canvas id="preview" width="224" height="224" hidden></canvas>
+        <p id="placeholder" data-t="placeholder"></p>
+        <div id="frame" hidden><div id="scanLine"></div></div>
+      </div>
+
+      <p data-t="tips"></p>
+      <p id="message" class="status" aria-live="polite"></p>
+
+      <div class="buttons">
+        <button type="button" id="startBtn" data-t="startCamera"></button>
+        <button type="button" id="stopBtn" data-t="stopCamera" disabled></button>
+        <button type="button" id="switchBtn" data-t="switchCamera" disabled></button>
+        <button type="button" id="liveBtn" data-t="liveStart" disabled></button>
+        <button type="button" id="captureBtn" class="wide" data-t="capture" disabled></button>
+        <label class="upload wide">
+          <span data-t="upload"></span>
+          <input type="file" id="fileInput" accept="image/*">
+        </label>
+      </div>
+
+      <div id="result" class="card" hidden></div>
+      <p class="warn" data-t="disclaimer"></p>
+    </section>
+
+    <!-- LIBRARY -->
+    <section id="library" class="page">
+      <h2 data-t="navLibrary"></h2>
+      <div id="libraryList"></div>
+      <p class="warn" data-t="disclaimer"></p>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="history" class="page">
+      <h2 data-t="navHistory"></h2>
+      <p data-t="historyNote"></p>
+      <div id="historyList"></div>
+      <button type="button" id="clearBtn" data-t="clearHistory"></button>
+    </section>
+
+    <!-- HELP -->
+    <section id="help" class="page">
+      <h2 data-t="navHelp"></h2>
+      <div class="card"><h3 data-t="observeTitle"></h3><p data-t="observe"></p></div>
+      <div class="card"><h3 data-t="expertTitle"></h3><p data-t="expert"></p>
+        <a class="big call" href="tel:18001801551">📞 1800-180-1551</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="page">
+      <h2 data-t="navAbout"></h2>
+      <div class="card"><h3 data-t="title"></h3><p data-t="intro"></p></div>
+      <div class="card"><h3 data-t="objTitle"></h3><p data-t="objectives"></p></div>
+      <div class="card"><h3 data-t="sciTitle"></h3><p data-t="science"></p></div>
+      <div class="card"><h3 data-t="techTitle"></h3><p>HTML, CSS, JavaScript, Teachable Machine, TensorFlow.js, GitHub Pages</p></div>
+      <div class="card">
+        <h3 data-t="teamTitle"></h3>
+        <p data-t="team"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Free AI libraries (internet needed) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.5/dist/teachablemachine-image.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
